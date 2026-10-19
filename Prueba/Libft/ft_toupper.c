@@ -6,7 +6,16 @@
 /*   By: orlgarci <orlgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 13:21:24 by orlgarci          #+#    #+#             */
-/*   Updated: 2026/09/28 13:21:25 by orlgarci         ###   ########.fr       */
+/*   Updated: 2026/10/19 18:17:15 by orlgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
+
+int	ft_toupper(int c)
+{
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
+}
 
