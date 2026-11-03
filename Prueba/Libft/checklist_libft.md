@@ -2,10 +2,11 @@
 
 ## Estado general
 - [x] Parte 1 - Funciones de libc
-- [ ] Parte 2 - Funciones adicionales
-- [ ] Parte 3 - Listas enlazadas
+- [x] Parte 2 - Funciones adicionales
+- [x] Parte 3 - Listas enlazadas
 - [x] Makefile y librería base
 - [x] Corrección de `ft_strlcpy`
+- [x] Norminette en todos los `.c` y en `libft.h`
 
 ## Parte 1 - Funciones de libc
 
@@ -40,31 +41,32 @@
 
 ## Parte 2 - Funciones adicionales
 
-- [ ] `ft_substr`
-- [ ] `ft_strjoin`
-- [ ] `ft_strtrim`
-- [ ] `ft_split`
-- [ ] `ft_itoa`
-- [ ] `ft_strmapi`
-- [ ] `ft_striteri`
-- [ ] `ft_putchar_fd`
-- [ ] `ft_putstr_fd`
-- [ ] `ft_putendl_fd`
-- [ ] `ft_putnbr_fd`
+- [x] `ft_substr`
+- [x] `ft_strjoin`
+- [x] `ft_strtrim`
+- [x] `ft_split`
+- [x] `ft_itoa`
+- [x] `ft_strmapi`
+- [x] `ft_striteri`
+- [x] `ft_putchar_fd`
+- [x] `ft_putstr_fd`
+- [x] `ft_putendl_fd`
+- [x] `ft_putnbr_fd`
 
 ## Parte 3 - Listas enlazadas
 
-- [ ] `ft_lstnew`
-- [ ] `ft_lstadd_front`
-- [ ] `ft_lstsize`
-- [ ] `ft_lstlast`
-- [ ] `ft_lstadd_back`
-- [ ] `ft_lstdelone`
-- [ ] `ft_lstclear`
-- [ ] `ft_lstiter`
-- [ ] `ft_lstmap`
+- [x] `ft_lstnew`
+- [x] `ft_lstadd_front`
+- [x] `ft_lstsize`
+- [x] `ft_lstlast`
+- [x] `ft_lstadd_back`
+- [x] `ft_lstdelone`
+- [x] `ft_lstclear`
+- [x] `ft_lstiter`
+- [x] `ft_lstmap`
 
 ## Observaciones
-- La Parte 1 de Libft está hecha y compilando correctamente.
-- El detalle corregido fue la firma de `ft_strlcpy` para que coincida con `libft.h` y con el comportamiento esperado de `strlcpy`.
-- Siguiente objetivo: completar la Parte 2 (funciones extra) y luego la Parte 3 (listas enlazadas).
+- Las tres partes requeridas están implementadas y añadidas al `Makefile` y a `libft.h`.
+- La compilación se realiza con `make` y crea `libft.a`.
+- Se han revisado casos límite de `ft_calloc`, `ft_strlcat` y `ft_strnstr`, además de probar las funciones nuevas.
+- Todos los archivos `.c` y `libft.h` pasan Norminette.

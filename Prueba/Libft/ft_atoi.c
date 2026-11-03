@@ -11,28 +11,46 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
+
+static int	is_whitespace(char c)
+{
+	return ((c >= 9 && c <= 13) || c == 32);
+}
+
+static unsigned int	parse_number(const char *str)
+{
+	unsigned int	value;
+
+	value = 0;
+	while (ft_isdigit(*str))
+	{
+		value = value * 10U + (unsigned int)(*str - '0');
+		str++;
+	}
+	return (value);
+}
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	signo;
-	int	resultado;
+	int				sign;
+	unsigned int	value;
 
-	i = 0;
-	signo = 1;
-	resultado = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (is_whitespace(*str))
+		str++;
+	sign = 1;
+	if (*str == '-' || *str == '+')
 	{
-		if (str[i] == '-')
-			signo = -1;
-		i++;
+		if (*str == '-')
+			sign = -1;
+		str++;
 	}
-	while (ft_isdigit(str[i]))
+	value = parse_number(str);
+	if (sign < 0)
 	{
-		resultado = (resultado * 10) + (str[i] - '0');
-		i++;
+		if (value == (unsigned int)INT_MAX + 1U)
+			return (INT_MIN);
+		return (-(int)value);
 	}
-	return (signo * resultado);
+	return ((int)value);
 }

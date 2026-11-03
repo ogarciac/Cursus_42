@@ -19,7 +19,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	i;
 
 	dlen = 0;
-	while (dst[dlen] != '\0' && dlen < size)
+	while (dlen < size && dst[dlen] != '\0')
 		dlen++;
 	slen = 0;
 	while (src[slen] != '\0')
@@ -35,4 +35,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[dlen + i] = '\0';
 	return (dlen + slen);
 }
-
