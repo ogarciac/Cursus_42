@@ -6,7 +6,7 @@
 /*   By: orlgarci <orlgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 13:20:57 by orlgarci          #+#    #+#             */
-/*   Updated: 2026/10/19 18:11:40 by orlgarci         ###   ########.fr       */
+/*   Updated: 2026/11/04 15:46:28 by orlgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	while (src[slen] != '\0')
 		slen++;
 	if (dlen == size)
-		return (size + slen);
+		return (dlen + slen);
 	i = 0;
 	while (src[i] != '\0' && dlen + i + 1 < size)
 	{

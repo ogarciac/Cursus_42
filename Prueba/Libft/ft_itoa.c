@@ -3,51 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orlgarci <orlgarci@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: orlgarci <orlgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 12:05:28 by orlgarci          #+#    #+#             */
-/*   Updated: 2026/11/01 12:05:28 by orlgarci         ###   ########.fr       */
+/*   Updated: 2026/11/04 15:57:14 by orlgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	digit_count(unsigned int n)
+static int	ft_count(long nb)
 {
-	size_t	count;
+	int	len;
 
-	count = 1;
-	while (n >= 10)
+	len = 1;
+	if (nb < 0)
 	{
-		n /= 10;
-		count++;
+		nb = -nb;
+		len++;
 	}
-	return (count);
+	while (nb >= 10)
+	{
+		nb /= 10;
+		len++;
+	}
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	unsigned int	value;
-	size_t			len;
-	char			*text;
-	int				negative;
+	char	*s;
+	long	nb;
+	int		len;
 
-	negative = (n < 0);
-	if (negative)
-		value = (unsigned int)(-(n + 1)) + 1;
-	else
-		value = (unsigned int)n;
-	len = digit_count(value) + negative;
-	text = (char *)malloc(len + 1);
-	if (!text)
+	nb = n;
+	len = ft_count(nb);
+	s = malloc(sizeof(char) * (len + 1));
+	if (!s)
 		return (NULL);
-	text[len] = '\0';
-	while (len > (size_t)negative)
+	s[len] = '\0';
+	if (nb < 0)
 	{
-		text[--len] = (value % 10) + '0';
-		value /= 10;
+		s[0] = '-';
+		nb = -nb;
 	}
-	if (negative)
-		text[0] = '-';
-	return (text);
+	while (len-- > 0 && s[len] != '-')
+	{
+		s[len] = (nb % 10) + '0';
+		nb /= 10;
+	}
+	return (s);
 }
